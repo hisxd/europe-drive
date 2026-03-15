@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中欧・バルカン半島 11カ国横断ドライブ旅のしおり</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;900&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&family=Almendra:ital,wght@0,400;0,700;1,400&family=Almendra+Display&family=MedievalSharp&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parchment:    #f4e8c1;
+  --parchment-dk: #e8d49a;
+  --parchment-lt: #fdf6e3;
+  --ink:          #1a0f00;
+  --ink-mid:      #3d2b1f;
+  --sepia:        #6b4423;
+  --blood:        #7a1c1c;
+  --gold:         #b8860b;
+  --gold-lt:      #d4a017;
+  --gold-bright:  #f0c040;
+  --verdigris:    #2d5a3d;
+  --border-dark:  #5c3d1e;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: #1a0d00;
+  font-family: 'Almendra', 'IM Fell English', 'Noto Serif JP', serif;
+  color: var(--ink);
+}
+body::before {
+  content:'';
+  position:fixed; inset:0; pointer-events:none; z-index:9999;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity:.6;
+}
+.manuscript { max-width:900px; margin:0 auto; position:relative; }
+
+/* COVER */
+.cover {
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse at 50% 10%, rgba(184,134,11,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 30% 90%, rgba(122,28,28,0.18) 0%, transparent 50%),
+    linear-gradient(160deg, #150a00 0%, #0c1825 45%, #150a00 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:60px 40px; position:relative; overflow:hidden;
+}
+.cover::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 12%,  rgba(240,192,64,0.7) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 22% 6%,   rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 38% 20%,  rgba(240,192,64,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 58% 4%,   rgba(240,192,64,0.6) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 72% 16%,  rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 87% 10%,  rgba(240,192,64,0.7) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 14% 82%,  rgba(240,192,64,0.4) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 33% 91%,  rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 65% 87%,  rgba(240,192,64,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 82% 93%,  rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 4%  48%,  rgba(240,192,64,0.4) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 96% 55%,  rgba(240,192,64,0.4) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 50% 35%,  rgba(255,255,255,0.2) 0%, transparent 100%);
+}
+.cover-border { position:absolute; inset:20px; border:1px solid rgba(184,134,11,0.45); pointer-events:none; }
+.cover-border::before { content:''; position:absolute; inset:6px; border:1px solid rgba(184,134,11,0.2); }
+.cover-border::after  { content:''; position:absolute; inset:12px; border:1px solid rgba(184,134,11,0.1); }
+
+.co { position:absolute; width:56px; height:56px; }
+.co svg { width:100%; height:100%; }
+.co.tl { top:20px; left:20px; }
+.co.tr { top:20px; right:20px; transform:scaleX(-1); }
+.co.bl { bottom:20px; left:20px; transform:scaleY(-1); }
+.co.br { bottom:20px; right:20px; transform:scale(-1); }
+
+.cover-eyebrow {
+  font-family:'Cinzel',serif; font-size:10px; letter-spacing:7px;
+  color:rgba(184,134,11,0.65); margin-bottom:20px; text-transform:uppercase;
+}
+.cover-title-main {
+  font-family:'UnifrakturMaguntia',cursive; font-size:78px; color:var(--gold-bright);
+  text-align:center; line-height:1; margin-bottom:6px;
+  text-shadow:0 0 50px rgba(240,192,64,0.35), 3px 3px 0 rgba(0,0,0,0.6);
+}
+.cover-title-sub {
+  font-family:'Cinzel Decorative',serif; font-size:14px; color:var(--gold-lt);
+  text-align:center; letter-spacing:3px; margin-bottom:4px;
+}
+.cover-rule {
+  width:280px; height:1px; margin:22px auto;
+  background:linear-gradient(to right, transparent, var(--gold), transparent);
+  position:relative;
+}
+.cover-rule::before {
+  content:'❧'; position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%); color:var(--gold-bright); font-size:18px;
+}
+.cover-stats { display:flex; gap:56px; margin:4px 0 26px; }
+.cs { text-align:center; }
+.cs-n {
+  font-family:'Cinzel',serif; font-size:44px; font-weight:900; color:var(--gold-bright);
+  line-height:1; display:block; text-shadow:0 0 25px rgba(240,192,64,0.45);
+}
+.cs-l {
+  font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px;
+  color:rgba(184,134,11,0.55); display:block; margin-top:4px;
+}
+.cover-flags { font-size:20px; letter-spacing:5px; margin-bottom:14px; }
+.cover-route {
+  font-family:'IM Fell English',serif; font-style:italic; font-size:12.5px;
+  color:rgba(184,134,11,0.48); text-align:center; line-height:2.1; letter-spacing:1px;
+}
+
+/* CREST SVG */
+.crest { width:88px; height:88px; margin-bottom:22px; }
+
+/* PAGES */
+.page {
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(139,90,43,0.09) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 85%, rgba(139,90,43,0.07) 0%, transparent 40%),
+    linear-gradient(145deg, #f5e9c4 0%, #efe0a8 35%, #f4e8c1 65%, #e9d59d 100%);
+  padding:72px 72px 72px 90px; position:relative; border-top:3px solid var(--border-dark);
+  /* Outer burn glow */
+  box-shadow:
+    inset 0 0 60px rgba(40,15,0,0.35),
+    inset 0 0 20px rgba(60,20,0,0.25);
+}
+/* Burn layer 1 — charred edges */
+.page::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:1;
+  background:
+    /* left burn */
+    linear-gradient(to right,  #1a0800 0%, rgba(60,20,0,0.72) 1.5%, rgba(92,40,10,0.45) 4%, rgba(139,80,30,0.18) 8%, transparent 16%),
+    /* right burn */
+    linear-gradient(to left,   #1a0800 0%, rgba(60,20,0,0.65) 1.2%, rgba(92,40,10,0.38) 3.5%, rgba(139,80,30,0.14) 8%, transparent 15%),
+    /* top burn */
+    linear-gradient(to bottom, #1a0800 0%, rgba(60,20,0,0.68) 1%, rgba(92,40,10,0.4) 3%, rgba(139,80,30,0.15) 7%, transparent 13%),
+    /* bottom burn */
+    linear-gradient(to top,    #1a0800 0%, rgba(60,20,0,0.60) 1%, rgba(92,40,10,0.35) 3%, rgba(139,80,30,0.12) 7%, transparent 13%);
+}
+/* Burn layer 2 — irregular scorch blotches at corners */
+.page::after {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:2;
+  background:
+    /* top-left corner scorch */
+    radial-gradient(ellipse 120px 90px at 0% 0%,   rgba(30,10,0,0.75) 0%, rgba(80,30,0,0.35) 35%, transparent 65%),
+    /* top-right corner scorch */
+    radial-gradient(ellipse 100px 80px at 100% 0%,  rgba(30,10,0,0.65) 0%, rgba(80,30,0,0.28) 35%, transparent 60%),
+    /* bottom-left corner scorch */
+    radial-gradient(ellipse 110px 85px at 0% 100%,  rgba(30,10,0,0.70) 0%, rgba(80,30,0,0.32) 35%, transparent 62%),
+    /* bottom-right corner scorch */
+    radial-gradient(ellipse 95px 75px  at 100% 100%,rgba(30,10,0,0.60) 0%, rgba(80,30,0,0.25) 35%, transparent 60%),
+    /* mid-edge burn variations */
+    radial-gradient(ellipse 40px 120px at 0% 40%,   rgba(40,15,0,0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 35px 100px at 100% 65%,  rgba(40,15,0,0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 120px 35px at 30% 0%,    rgba(40,15,0,0.28) 0%, transparent 70%),
+    radial-gradient(ellipse 100px 30px at 70% 100%,  rgba(40,15,0,0.22) 0%, transparent 70%);
+}
+.page-alt {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(45,90,61,0.07) 0%, transparent 50%),
+    linear-gradient(145deg, #f0e6b0 0%, #f4e8c1 50%, #ecd89a 100%);
+}
+
+/* Ensure all direct page content sits above burn layers */
+.page > * { position:relative; z-index:3; }
+.pn { z-index:4; }
+
+/* Chapter header */
+.ch { display:flex; align-items:flex-start; gap:22px; margin-bottom:38px; position:relative; z-index:3; }
+.ch-n {
+  font-family:'Cinzel',serif; font-size:96px; font-weight:900;
+  line-height:0.85; color:rgba(92,61,30,0.11); flex-shrink:0; margin-top:-8px;
+}
+.ch-t { flex:1; }
+.ch-ey {
+  font-family:'Cinzel',serif; font-size:9px; letter-spacing:5px;
+  color:var(--sepia); opacity:.65; margin-bottom:4px; font-variant:small-caps;
+}
+.ch-ti {
+  font-family:'Almendra Display', 'Cinzel Decorative',serif; font-size:28px;
+  font-weight:700; color:var(--blood); line-height:1.1;
+}
+.ch-ru {
+  margin-top:10px; height:2px;
+  background:linear-gradient(to right, var(--gold), var(--sepia), transparent);
+}
+
+/* Drop cap */
+.drop-cap::first-letter {
+  font-family:'UnifrakturMaguntia',cursive; font-size:5.8em;
+  float:left; line-height:0.72; margin:4px 10px 0 0;
+  color:var(--blood); text-shadow:2px 2px 0 rgba(184,134,11,0.3);
+}
+
+/* Overview table */
+.ov { border:1px solid var(--border-dark); background:rgba(92,61,30,0.05); margin-bottom:26px; position:relative; z-index:3; }
+.ov-r { display:grid; grid-template-columns:165px 1fr; border-bottom:1px solid rgba(92,61,30,0.2); }
+.ov-r:last-child { border-bottom:none; }
+.ov-k {
+  padding:12px 15px; font-family:'Cinzel',serif; font-size:9.5px; letter-spacing:2px;
+  color:var(--sepia); background:rgba(92,61,30,0.07); font-variant:small-caps;
+  border-right:1px solid rgba(92,61,30,0.2); display:flex; align-items:center;
+}
+.ov-v { padding:12px 15px; font-size:13px; color:var(--ink-mid); line-height:1.6; }
+.ov-v a { color:var(--verdigris); font-size:11px; word-break:break-all; }
+
+/* Scroll table */
+.st { width:100%; border-collapse:collapse; border:2px solid var(--border-dark); position:relative; z-index:3; }
+.st thead tr { background:var(--blood); }
+.st thead th {
+  padding:11px 13px; font-family:'Cinzel',serif; font-size:9px;
+  letter-spacing:3px; color:var(--parchment); text-align:left; font-weight:400; font-variant:small-caps;
+}
+.st tbody tr { border-bottom:1px solid rgba(92,61,30,0.25); }
+.st tbody tr:nth-child(odd) { background:rgba(92,61,30,0.04); }
+.st tbody td { padding:11px 13px; font-size:12.5px; color:var(--ink-mid); vertical-align:top; line-height:1.5; word-wrap:break-word; overflow-wrap:break-word; }
+.sn { font-family:'Cinzel',serif; font-size:15px; color:rgba(92,61,30,0.28); font-weight:900; text-align:center; }
+.sc { font-family:'Cinzel',serif; font-size:11.5px; font-weight:600; color:var(--blood); }
+.scc { font-size:11px; color:var(--sepia); font-style:italic; margin-top:1px; }
+
+/* Day schedule */
+.de { display:grid; grid-template-columns:78px 1fr; border-bottom:1px solid rgba(92,61,30,0.2); }
+.de:last-child { border-bottom:none; }
+.dg {
+  background:rgba(92,61,30,0.07); border-right:1px solid rgba(92,61,30,0.2);
+  padding:15px 8px; display:flex; flex-direction:column; align-items:center;
+  justify-content:flex-start; gap:2px;
+}
+.dr { font-family:'Cinzel',serif; font-size:14px; font-weight:900; color:var(--blood); line-height:1; }
+.da { font-family:'Cinzel',serif; font-size:8px; color:rgba(92,61,30,0.45); letter-spacing:1px; }
+.db { padding:15px 18px; background:rgba(255,255,255,0.12); }
+.dc { font-family:'Almendra Display','Cinzel',serif; font-size:13.5px; font-weight:700; color:var(--ink); margin-bottom:4px; }
+.dd { font-family:'Cinzel',serif; font-size:9px; letter-spacing:2px; color:var(--gold); margin-bottom:6px; }
+.dexp { font-size:12.5px; color:var(--ink-mid); line-height:1.65; font-style:italic; }
+.dtag {
+  display:inline-block; background:var(--blood); color:var(--parchment-lt);
+  font-family:'Cinzel',serif; font-size:8px; letter-spacing:2px;
+  padding:2px 8px; margin-bottom:6px; border:1px solid rgba(184,134,11,0.35);
+}
+
+/* Ornament */
+.orn {
+  text-align:center; margin:26px 0; position:relative;
+  color:var(--sepia); opacity:.45; font-size:15px; letter-spacing:10px;
+}
+.orn::before,.orn::after {
+  content:''; position:absolute; top:50%; width:28%; height:1px;
+  background:linear-gradient(to right, transparent, var(--sepia));
+}
+.orn::before { left:0; }
+.orn::after  { right:0; background:linear-gradient(to left, transparent, var(--sepia)); }
+
+/* Info blocks */
+.ib { margin-bottom:28px; }
+.ih {
+  font-family:'Cinzel Decorative',serif; font-size:15px; color:var(--blood);
+  border-bottom:1px solid var(--sepia); padding-bottom:6px; margin-bottom:12px;
+}
+.ig { border:1px solid rgba(92,61,30,0.3); }
+.ir { display:grid; grid-template-columns:175px 1fr; border-bottom:1px solid rgba(92,61,30,0.15); }
+.ir:last-child { border-bottom:none; }
+.ik {
+  padding:10px 13px; font-family:'Cinzel',serif; font-size:9.5px; letter-spacing:1px;
+  color:var(--sepia); background:rgba(92,61,30,0.06); border-right:1px solid rgba(92,61,30,0.15);
+}
+.iv { padding:10px 13px; font-size:12.5px; color:var(--ink-mid); line-height:1.6; }
+
+/* Currency */
+.cg { display:grid; grid-template-columns:repeat(4,1fr); gap:5px; margin-top:10px; }
+.cc { border:1px solid rgba(92,61,30,0.3); padding:10px 7px; text-align:center; background:rgba(255,255,255,0.18); }
+.ccc { font-family:'Cinzel',serif; font-size:8.5px; letter-spacing:1px; color:var(--sepia); }
+.ccn { font-family:'Cinzel',serif; font-size:11.5px; font-weight:600; color:var(--blood); margin-top:2px; }
+
+/* Highlights */
+.hlc { display:grid; gap:11px; }
+.hlcard { display:grid; grid-template-columns:54px 1fr; border:1px solid rgba(92,61,30,0.32); background:rgba(255,255,255,0.14); }
+.hlr { background:var(--blood); display:flex; align-items:center; justify-content:center; padding:14px 0; }
+.hlri { font-family:'UnifrakturMaguntia',cursive; font-size:32px; color:var(--gold-bright); line-height:1; }
+.hlb { padding:13px 17px; }
+.hlt { font-family:'Almendra Display','Cinzel',serif; font-size:13px; font-weight:700; color:var(--blood); margin-bottom:5px; }
+.hld { font-size:12.5px; color:var(--ink-mid); line-height:1.7; font-style:italic; }
+
+/* Page number */
+.pn {
+  position:absolute; bottom:22px; right:46px;
+  font-family:'Cinzel',serif; font-size:10px; color:rgba(92,61,30,0.32); letter-spacing:3px;
+}
+
+/* BACK COVER */
+.bc {
+  min-height:60vh;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(184,134,11,0.12) 0%, transparent 65%),
+    linear-gradient(155deg, #0c1825 0%, #150a00 55%, #0c1825 100%);
+  padding:80px 60px; text-align:center; position:relative; overflow:hidden;
+}
+.bc::before { content:''; position:absolute; inset:24px; border:1px solid rgba(184,134,11,0.28); pointer-events:none; }
+.bc::after  { content:''; position:absolute; inset:30px; border:1px solid rgba(184,134,11,0.1); pointer-events:none; }
+.bq { font-family:'UnifrakturMaguntia',cursive; font-size:38px; color:var(--gold-lt); line-height:1.4; margin-bottom:14px; text-shadow:0 0 35px rgba(240,192,64,0.22); }
+.bqs { font-family:'IM Fell English',serif; font-style:italic; font-size:15px; color:rgba(184,134,11,0.52); margin-bottom:8px; }
+.bqa { font-family:'Cinzel',serif; font-size:9px; letter-spacing:4px; color:rgba(184,134,11,0.38); }
+.bdiv { width:200px; height:1px; background:linear-gradient(to right, transparent, var(--gold), transparent); margin:30px auto; }
+.blink {
+  display:inline-block; border:1px solid rgba(184,134,11,0.52); padding:12px 32px;
+  font-family:'Cinzel',serif; font-size:9.5px; letter-spacing:3px;
+  color:var(--gold-lt); text-decoration:none; margin-top:22px; transition:all .2s;
+}
+.blink:hover { background:rgba(184,134,11,0.16); color:var(--gold-bright); }
+.bfoot { margin-top:46px; font-family:'Cinzel',serif; font-size:8.5px; letter-spacing:4px; color:rgba(184,134,11,0.2); }
+
+/* ══════════════════════════════════
+   RESPONSIVE — スマホ対応
+══════════════════════════════════ */
+@media (max-width: 640px) {
+
+  /* Cover */
+  .cover { padding:40px 20px; }
+  .cover-title-main { font-size:46px; }
+  .cover-title-sub  { font-size:11px; letter-spacing:1px; }
+  .cover-stats      { gap:24px; }
+  .cs-n             { font-size:32px; }
+  .cs-l             { font-size:8px; letter-spacing:1px; }
+  .cover-flags      { font-size:15px; letter-spacing:3px; }
+  .cover-route      { font-size:10px; line-height:1.8; }
+  .crest            { width:64px; height:64px; margin-bottom:16px; }
+  .co               { width:36px; height:36px; }
+  .co.tl { top:12px; left:12px; }
+  .co.tr { top:12px; right:12px; }
+  .co.bl { bottom:12px; left:12px; }
+  .co.br { bottom:12px; right:12px; }
+  .cover-border     { inset:12px; }
+
+  /* Pages */
+  .page             { padding:40px 20px 40px 28px; }
+  .page::after      { width:8px; }
+
+  /* Chapter header */
+  .ch               { gap:12px; margin-bottom:24px; }
+  .ch-n             { font-size:60px; }
+  .ch-ti            { font-size:20px; }
+
+  /* Overview table */
+  .ov-r             { grid-template-columns:1fr; }
+  .ov-k             { border-right:none; border-bottom:1px solid rgba(92,61,30,0.2); padding:8px 12px; }
+  .ov-v             { padding:8px 12px; font-size:12px; }
+
+  /* Stops table — スタック表示 */
+  .st               { display:block; }
+  .st thead         { display:none; }
+  .st tbody         { display:block; }
+  .st tbody tr      { display:block; border-bottom:2px solid rgba(92,61,30,0.3); padding:10px 0; }
+  .st tbody td      { display:block; padding:4px 12px; font-size:12px; }
+  .st tbody td.sn   { font-size:20px; padding:6px 12px 2px; }
+
+  /* Day schedule */
+  .de               { grid-template-columns:52px 1fr; }
+  .dg               { padding:12px 6px; }
+  .dr               { font-size:12px; }
+  .db               { padding:12px 14px; }
+  .dc               { font-size:12px; }
+  .dexp             { font-size:11.5px; }
+
+  /* Info grid */
+  .ir               { grid-template-columns:1fr; }
+  .ik               { border-right:none; border-bottom:1px solid rgba(92,61,30,0.15); padding:7px 12px; }
+  .iv               { padding:7px 12px; font-size:12px; }
+
+  /* Currency grid */
+  .cg               { grid-template-columns:repeat(2,1fr); }
+
+  /* Highlights */
+  .hlcard           { grid-template-columns:44px 1fr; }
+  .hlri             { font-size:26px; }
+  .hlt              { font-size:12px; }
+  .hld              { font-size:11.5px; }
+
+  /* Map page */
+  .page svg         { min-height:280px; }
+
+  /* Back cover */
+  .bc               { padding:50px 24px; }
+  .bq               { font-size:26px; }
+  .bqs              { font-size:13px; }
+  .blink            { padding:10px 20px; font-size:9px; letter-spacing:2px; }
+  .bfoot            { font-size:7px; letter-spacing:2px; }
+
+  /* Drop cap smaller */
+  .drop-cap::first-letter { font-size:4em; }
+
+  /* Page number */
+  .pn { bottom:14px; right:20px; font-size:9px; }
+}
+
+@media (max-width: 380px) {
+  .cover-title-main { font-size:36px; }
+  .cover-stats      { gap:16px; }
+  .cs-n             { font-size:26px; }
+  .page             { padding:32px 16px 32px 22px; }
+}
+</style>
+</head>
+<body>
+<div class="manuscript">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-border"></div>
+  <div class="co tl"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 2L28 2L28 8M2 2L2 28L8 28" stroke="#b8860b" stroke-width="1.5"/><path d="M10 10L22 10M10 10L10 22" stroke="#b8860b" stroke-width="0.7" opacity="0.5"/><circle cx="10" cy="10" r="2" fill="#b8860b" opacity="0.55"/><path d="M16 2Q18 14 28 14" stroke="#b8860b" stroke-width="0.5" opacity="0.35" fill="none"/><circle cx="2" cy="2" r="1.5" fill="#d4a017" opacity="0.5"/></svg></div>
+  <div class="co tr"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 2L28 2L28 8M2 2L2 28L8 28" stroke="#b8860b" stroke-width="1.5"/><path d="M10 10L22 10M10 10L10 22" stroke="#b8860b" stroke-width="0.7" opacity="0.5"/><circle cx="10" cy="10" r="2" fill="#b8860b" opacity="0.55"/><circle cx="2" cy="2" r="1.5" fill="#d4a017" opacity="0.5"/></svg></div>
+  <div class="co bl"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 2L28 2L28 8M2 2L2 28L8 28" stroke="#b8860b" stroke-width="1.5"/><path d="M10 10L22 10M10 10L10 22" stroke="#b8860b" stroke-width="0.7" opacity="0.5"/><circle cx="10" cy="10" r="2" fill="#b8860b" opacity="0.55"/><circle cx="2" cy="2" r="1.5" fill="#d4a017" opacity="0.5"/></svg></div>
+  <div class="co br"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 2L28 2L28 8M2 2L2 28L8 28" stroke="#b8860b" stroke-width="1.5"/><path d="M10 10L22 10M10 10L10 22" stroke="#b8860b" stroke-width="0.7" opacity="0.5"/><circle cx="10" cy="10" r="2" fill="#b8860b" opacity="0.55"/><circle cx="2" cy="2" r="1.5" fill="#d4a017" opacity="0.5"/></svg></div>
+
+  <!-- Heraldic crest -->
+  <svg class="crest" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M44 7L70 19L70 50Q70 68 44 80Q18 68 18 50L18 19Z" fill="rgba(122,28,28,0.45)" stroke="#b8860b" stroke-width="1.5"/>
+    <line x1="44" y1="17" x2="44" y2="70" stroke="#d4a017" stroke-width="1.8"/>
+    <line x1="23" y1="38" x2="65" y2="38" stroke="#d4a017" stroke-width="1.8"/>
+    <path d="M29 7L29 2L36 5.5L44 0L52 5.5L59 2L59 7Z" fill="#d4a017" opacity="0.85"/>
+    <circle cx="32" cy="28" r="3.5" fill="rgba(240,192,64,0.3)" stroke="#b8860b" stroke-width="0.7"/>
+    <circle cx="56" cy="28" r="3.5" fill="rgba(240,192,64,0.3)" stroke="#b8860b" stroke-width="0.7"/>
+    <circle cx="32" cy="50" r="3"   fill="rgba(240,192,64,0.25)" stroke="#b8860b" stroke-width="0.7"/>
+    <circle cx="56" cy="50" r="3"   fill="rgba(240,192,64,0.25)" stroke="#b8860b" stroke-width="0.7"/>
+    <path d="M27 62Q33 70 44 66Q55 70 61 62" stroke="#d4a017" stroke-width="1" fill="none" opacity="0.55"/>
+  </svg>
+
+  <div class="cover-eyebrow">11カ国横断 · Anno Domini MMXXVI</div>
+  <div class="cover-title-main">Europæ Iter</div>
+  <div class="cover-title-sub">中欧・バルカン半島 絶景ドライブ旅のしおり</div>
+  <div class="cover-rule"></div>
+  <div class="cover-stats">
+    <div class="cs"><span class="cs-n">3,800</span><span class="cs-l">Miliaria · km</span></div>
+    <div class="cs"><span class="cs-n">11</span><span class="cs-l">カ国</span></div>
+    <div class="cs"><span class="cs-n">14</span><span class="cs-l">日間</span></div>
+  </div>
+  <div class="cover-flags">🇨🇿 🇸🇰 🇭🇺 🇦🇹 🇸🇮 🇷🇴 🇷🇸 🇧🇦 🇽🇰 🇲🇪 🇭🇷</div>
+  <div class="cover-route">
+    Praha · Bratislava · Budapest · Wien · Bled<br>
+    Timișoara · Beograd · Sarajevo · Prishtinë · Kotor<br>
+    Dubrovnik · Split · Mostar · Plitvice · Praha
+  </div>
+</div>
+
+<!-- PAGE I: OVERVIEW -->
+<div class="page">
+  <div class="ch">
+    <div class="ch-n">I</div>
+    <div class="ch-t">
+      <div class="ch-ey">Conspectus Itineris</div>
+      <div class="ch-ti">旅程の概覧</div>
+      <div class="ch-ru"></div>
+    </div>
+  </div>
+  <div class="ov">
+    <div class="ov-r"><div class="ov-k">総距離</div><div class="ov-v">約 3,800 km</div></div>
+    <div class="ov-r"><div class="ov-k">推奨日程</div><div class="ov-v">14日間（余裕を持つなら17日以上推奨）</div></div>
+    <div class="ov-r"><div class="ov-k">通過国（11カ国）</div><div class="ov-v">🇨🇿チェコ・🇸🇰スロバキア・🇭🇺ハンガリー・🇦🇹オーストリア・🇸🇮スロベニア・🇷🇴ルーマニア・🇷🇸セルビア・🇧🇦ボスニア・🇽🇰コソボ・🇲🇪モンテネグロ・🇭🇷クロアチア</div></div>
+    <div class="ov-r"><div class="ov-k">出発 / 帰着</div><div class="ov-v">🇨🇿 プラハ（完全ループルート）</div></div>
+    <div class="ov-r"><div class="ov-k">最良の時期</div><div class="ov-v">五月〜六月 / 九月〜十月（七〜八月は海が最高、但し混雑）</div></div>
+    <div class="ov-r"><div class="ov-k">Google マップ</div><div class="ov-v"><a href="https://www.google.com/maps/dir/Prague/Vienna/Lake+Bled/Budapest/Timisoara/Belgrade/Sarajevo/Zabljak/Kotor/Dubrovnik/Makarska/Split/Mostar/Plitvice+Lakes+National+Park/Prague">maps.google.com — 全ルートを開く →</a></div></div>
+  </div>
+  <div class="orn">⚜ &nbsp; ⚜ &nbsp; ⚜</div>
+  <p class="drop-cap" style="font-size:13.5px;color:var(--ink-mid);line-height:1.95;">
+    プラハをスタートとし再びプラハへと還るこの完全なる周回の旅路は、中欧の古都から南へと下り、バルカン半島の秘境を縦断して、文明の十字路たるボスニアを越え、アドリア海の蒼い水面を横目に駆け抜ける、全十一王国の絶景を網羅した至高の旅程である。
+  </p>
+  <span class="pn">— I —</span>
+</div>
+
+<!-- PAGE II: STOPS -->
+<div class="page page-alt">
+  <div class="ch">
+    <div class="ch-n">II</div>
+    <div class="ch-t">
+      <div class="ch-ey">Mansiones Itineris</div>
+      <div class="ch-ti">経由地一覧</div>
+      <div class="ch-ru"></div>
+    </div>
+  </div>
+  <table class="st" style="table-layout:fixed;width:100%;"><thead><tr>
+    <th style="width:36px">#</th>
+    <th style="width:22%">城市 / 都市</th>
+    <th style="width:22%">王国 / 国</th>
+    <th style="width:auto">名勝 · 見どころ</th>
+  </tr></thead><tbody id="sb"></tbody></table>
+  <script>
+  const stops=[
+    ["🇨🇿 プラハ","チェコ","旧市街広場・天文時計・カレル橋・プラハ城。中世の石畳が奇跡的に残る黄金の都"],
+    ["🇸🇰 ブラチスラバ","スロバキア（立寄）","コンパクトな旧市街と城。ウィーンから1時間。カジュアルな立ち寄りに最適"],
+    ["🇭🇺 ブダペスト","ハンガリー","漁夫の砦・国会議事堂・セーチェーニ温泉・ドナウ夜景クルーズ。ドナウの真珠"],
+    ["🇦🇹 ウィーン","オーストリア","王宮・シェーンブルン宮殿・美術史博物館・カフェ文化。ハプスブルクの薫り"],
+    ["🇸🇮 ブレッド湖","スロベニア","湖上の孤島に立つ教会。早朝の霧に包まれた光景はヨーロッパ屈指の絶景"],
+    ["🇷🇴 ティミショアラ","ルーマニア（立寄）","ルーマニア革命発祥地・勝利広場・正教会大聖堂。欧州文化首都2023"],
+    ["🇷🇸 ベオグラード","セルビア","カレメグダン要塞・スカダルリャ通り・活気あるナイトライフ。バルカンの心臓"],
+    ["🇧🇦 サラエボ","ボスニア・ヘルツェゴビナ","東西文明の交差点。モスク・教会・シナゴーグが共存するWWI暗殺の舞台"],
+    ["🇽🇰 プリシュティナ","コソボ（立寄）","2008年独立の最新国家。独立記念碑・バザール。日本人旅行者がほぼゼロ"],
+    ["🇲🇪 コトル","モンテネグロ","フィヨルドの湾岸要塞都市。猫の街。1350段の城壁登山からの絶景は必見"],
+    ["🇭🇷 ドブロブニク","クロアチア","アドリア海の真珠。城壁ウォーク・GoT聖地巡礼。夕暮れの海の青さが別格"],
+    ["🇭🇷 マカルスカ→スプリト","クロアチア","世界水準の海岸ドライブ＋ディオクレティアヌス宮殿（世界遺産）"],
+    ["🇧🇦 モスタル","ボスニア・ヘルツェゴビナ","スタリ・モスト（古い橋・世界遺産）。オスマン建築と東欧の美しい融合"],
+    ["🇭🇷 プリトヴィツェ","クロアチア","エメラルドの湖と滝が連なる世界遺産。クロアチア最高の自然スポット"],
+    ["🇨🇿 プラハ（帰着）","チェコ","旅の起点へ帰還。ループ完成。黄金の都で旅路に乾杯"],
+  ];
+  const sb=document.getElementById('sb');
+  stops.forEach((s,i)=>{
+    const n=i===14?'↩':(i+1);
+    sb.innerHTML+=`<tr><td class="sn">${n}</td><td><div class="sc">${s[0]}</div><div class="scc">${s[1]}</div></td><td style="font-size:12px;color:var(--ink-mid);font-style:italic;">${s[2]}</td></tr>`;
+  });
+  </script>
+  <span class="pn">— II —</span>
+</div>
+
+
+<!-- PAGE MAP: ROUTE MAP -->
+<div class="page page-alt" style="padding:56px 56px 56px 72px;">
+  <div class="ch">
+    <div class="ch-n" style="font-size:80px;">✦</div>
+    <div class="ch-t">
+      <div class="ch-ey">Tabula Itineris</div>
+      <div class="ch-ti">旅程地図</div>
+      <div class="ch-ru"></div>
+    </div>
+  </div>
+
+  <div style="position:relative; width:100%; background:rgba(92,61,30,0.04); border:1px solid var(--border-dark);">
+    <svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;font-family:'Cinzel',serif;">
+      <defs>
+        <!-- Parchment fill -->
+        <filter id="mapnoise">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+          <feBlend in="SourceGraphic" mode="multiply" result="blend"/>
+          <feComposite in="blend" in2="SourceGraphic"/>
+        </filter>
+        <!-- Hand-drawn path effect -->
+        <filter id="rough">
+          <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <!-- Glow for route -->
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2.5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#7a1c1c" opacity="0.8"/>
+        </marker>
+      </defs>
+
+      <!-- Map background -->
+      <rect width="760" height="520" fill="#f0e4b0" rx="2"/>
+      <rect width="760" height="520" fill="url(#mapnoise)" opacity="0.15"/>
+
+      <!-- Subtle country region fills -->
+      <!-- Czech -->
+      <ellipse cx="290" cy="95" rx="70" ry="38" fill="rgba(122,28,28,0.06)" filter="url(#rough)"/>
+      <!-- Slovakia -->
+      <ellipse cx="385" cy="108" rx="55" ry="28" fill="rgba(184,134,11,0.06)" filter="url(#rough)"/>
+      <!-- Hungary -->
+      <ellipse cx="400" cy="160" rx="70" ry="42" fill="rgba(45,90,61,0.06)" filter="url(#rough)"/>
+      <!-- Austria -->
+      <ellipse cx="265" cy="135" rx="58" ry="32" fill="rgba(122,28,28,0.05)" filter="url(#rough)"/>
+      <!-- Slovenia -->
+      <ellipse cx="240" cy="185" rx="42" ry="26" fill="rgba(184,134,11,0.07)" filter="url(#rough)"/>
+      <!-- Serbia -->
+      <ellipse cx="430" cy="250" rx="55" ry="45" fill="rgba(92,61,30,0.06)" filter="url(#rough)"/>
+      <!-- Bosnia -->
+      <ellipse cx="340" cy="295" rx="55" ry="45" fill="rgba(45,90,61,0.06)" filter="url(#rough)"/>
+      <!-- Kosovo -->
+      <ellipse cx="430" cy="340" rx="30" ry="22" fill="rgba(122,28,28,0.07)" filter="url(#rough)"/>
+      <!-- Montenegro -->
+      <ellipse cx="375" cy="360" rx="32" ry="24" fill="rgba(184,134,11,0.07)" filter="url(#rough)"/>
+      <!-- Croatia coast -->
+      <ellipse cx="270" cy="310" rx="38" ry="80" fill="rgba(45,90,61,0.05)" filter="url(#rough)" transform="rotate(-15 270 310)"/>
+      <!-- Romania -->
+      <ellipse cx="540" cy="175" rx="75" ry="50" fill="rgba(122,28,28,0.05)" filter="url(#rough)"/>
+
+      <!-- Sea (Adriatic) -->
+      <path d="M200,260 Q195,290 200,320 Q205,355 210,380 Q220,410 230,430 L260,440 Q250,410 245,385 Q240,360 238,330 Q235,300 235,270 Z"
+            fill="rgba(28,53,87,0.12)" filter="url(#rough)"/>
+      <text x="185" y="395" font-size="9" fill="rgba(28,53,87,0.5)" font-style="italic" transform="rotate(-70 185 395)">Mare Adriaticum</text>
+
+      <!-- Country labels (faint) -->
+      <text x="272" y="88"  font-size="10" fill="rgba(92,61,30,0.35)" font-variant="small-caps" text-anchor="middle">Bohemia</text>
+      <text x="385" y="102" font-size="9"  fill="rgba(92,61,30,0.3)"  font-variant="small-caps" text-anchor="middle">Slovakia</text>
+      <text x="400" y="155" font-size="10" fill="rgba(92,61,30,0.3)"  font-variant="small-caps" text-anchor="middle">Hungary</text>
+      <text x="258" y="128" font-size="9"  fill="rgba(92,61,30,0.3)"  font-variant="small-caps" text-anchor="middle">Austria</text>
+      <text x="430" y="245" font-size="9"  fill="rgba(92,61,30,0.3)"  font-variant="small-caps" text-anchor="middle">Serbia</text>
+      <text x="340" y="290" font-size="9"  fill="rgba(92,61,30,0.3)"  font-variant="small-caps" text-anchor="middle">Bosnia</text>
+      <text x="430" y="335" font-size="8"  fill="rgba(92,61,30,0.3)"  font-variant="small-caps" text-anchor="middle">Kosovo</text>
+      <text x="540" y="168" font-size="9"  fill="rgba(92,61,30,0.3)"  font-variant="small-caps" text-anchor="middle">Romania</text>
+      <text x="270" y="200" font-size="8"  fill="rgba(92,61,30,0.3)"  font-variant="small-caps" text-anchor="middle">Slovenia</text>
+      <text x="268" y="325" font-size="8"  fill="rgba(92,61,30,0.3)"  font-variant="small-caps" text-anchor="middle">Croatia</text>
+
+      <!-- Mountain symbols (decorative) -->
+      <g fill="rgba(92,61,30,0.18)" font-size="11">
+        <text x="225" y="168">⛰</text>
+        <text x="358" y="328">⛰</text>
+        <text x="210" y="290">⛰</text>
+      </g>
+
+      <!-- ROUTE PATH — hand-drawn style with rough filter -->
+      <!-- Praha -> Bratislava -> Budapest -> Vienna -> Bled -> Timisoara -> Belgrade -> Sarajevo -> Pristina -> Kotor -> Dubrovnik -> Split -> Mostar -> Plitvice -> Praha -->
+      <path d="
+        M 290 96
+        Q 330 96 356 108
+        Q 385 118 398 160
+        Q 390 148 345 140
+        Q 295 135 270 140
+        Q 248 158 242 186
+        Q 370 168 460 168
+        Q 510 168 530 185
+        Q 545 198 470 224
+        Q 450 232 430 255
+        Q 425 270 398 296
+        Q 388 310 395 342
+        Q 400 358 378 362
+        Q 354 368 310 380
+        Q 280 390 264 405
+        Q 252 416 250 435
+        Q 250 460 262 470
+        Q 268 476 270 468
+        Q 276 442 286 420
+        Q 300 390 308 370
+        Q 322 340 340 316
+        Q 350 300 340 290
+        Q 370 296 390 280
+        Q 405 266 410 250
+        Q 415 238 420 225
+        Q 428 200 438 186
+        Q 448 170 455 160
+        Q 460 150 450 140
+        Q 430 128 395 118
+        Q 370 110 340 100
+        Q 316 95 290 96
+      " fill="none" stroke="rgba(122,28,28,0.25)" stroke-width="8" stroke-linecap="round" filter="url(#rough)"/>
+
+      <!-- Clean route line on top -->
+      <polyline
+        points="290,96 356,108 398,160 398,160 270,140 242,186 530,185 430,255 398,296 395,342 310,380 264,405 286,420 340,316 290,96"
+        fill="none" stroke="#7a1c1c" stroke-width="2.2" stroke-dasharray="6,3"
+        stroke-linecap="round" stroke-linejoin="round"
+        marker-mid="url(#arrow)"
+        filter="url(#glow)" opacity="0.85"/>
+
+      <!-- City dots and labels -->
+      <!-- Praha (START/END) -->
+      <circle cx="290" cy="96" r="7" fill="#7a1c1c" stroke="#f0c040" stroke-width="1.5"/>
+      <text x="290" y="79" font-size="10.5" fill="#1a0f00" text-anchor="middle" font-weight="bold">① プラハ</text>
+      <text x="290" y="69" font-size="8" fill="#6b4423" text-anchor="middle" font-style="italic">START / GOAL</text>
+
+      <!-- Bratislava -->
+      <circle cx="356" cy="108" r="5" fill="#b8860b" stroke="#f0c040" stroke-width="1"/>
+      <text x="370" y="106" font-size="9" fill="#1a0f00">② ブラチスラバ</text>
+
+      <!-- Budapest -->
+      <circle cx="398" cy="160" r="6" fill="#7a1c1c" stroke="#f0c040" stroke-width="1.2"/>
+      <text x="410" y="158" font-size="10" fill="#1a0f00" font-weight="bold">③ ブダペスト</text>
+
+      <!-- Vienna -->
+      <circle cx="270" cy="140" r="6" fill="#7a1c1c" stroke="#f0c040" stroke-width="1.2"/>
+      <text x="218" y="138" font-size="10" fill="#1a0f00" text-anchor="middle">④ ウィーン</text>
+
+      <!-- Bled -->
+      <circle cx="242" cy="186" r="5" fill="#b8860b" stroke="#f0c040" stroke-width="1"/>
+      <text x="200" y="190" font-size="9" fill="#1a0f00" text-anchor="end">⑤ ブレッド湖</text>
+
+      <!-- Timisoara -->
+      <circle cx="530" cy="185" r="4.5" fill="#b8860b" stroke="#f0c040" stroke-width="1"/>
+      <text x="542" y="190" font-size="9" fill="#1a0f00">⑥ ティミショアラ</text>
+
+      <!-- Belgrade -->
+      <circle cx="430" cy="255" r="6" fill="#7a1c1c" stroke="#f0c040" stroke-width="1.2"/>
+      <text x="442" y="258" font-size="10" fill="#1a0f00" font-weight="bold">⑦ ベオグラード</text>
+
+      <!-- Sarajevo -->
+      <circle cx="398" cy="296" r="5.5" fill="#7a1c1c" stroke="#f0c040" stroke-width="1.2"/>
+      <text x="410" y="299" font-size="9.5" fill="#1a0f00">⑧ サラエボ</text>
+
+      <!-- Pristina -->
+      <circle cx="440" cy="342" r="4.5" fill="#b8860b" stroke="#f0c040" stroke-width="1"/>
+      <text x="452" y="346" font-size="9" fill="#1a0f00">⑨ プリシュティナ</text>
+
+      <!-- Kotor -->
+      <circle cx="378" cy="362" r="5" fill="#7a1c1c" stroke="#f0c040" stroke-width="1"/>
+      <text x="362" y="378" font-size="9" fill="#1a0f00" text-anchor="middle">⑩ コトル</text>
+
+      <!-- Dubrovnik -->
+      <circle cx="310" cy="380" r="6" fill="#7a1c1c" stroke="#f0c040" stroke-width="1.2"/>
+      <text x="298" y="395" font-size="9.5" fill="#1a0f00" text-anchor="end">⑪ ドブロブニク</text>
+
+      <!-- Split/Makarska -->
+      <circle cx="275" cy="345" r="4.5" fill="#b8860b" stroke="#f0c040" stroke-width="1"/>
+      <text x="215" y="348" font-size="9" fill="#1a0f00" text-anchor="end">⑫ マカルスカ→スプリト</text>
+
+      <!-- Mostar -->
+      <circle cx="358" cy="326" r="4.5" fill="#b8860b" stroke="#f0c040" stroke-width="1"/>
+      <text x="370" y="322" font-size="9" fill="#1a0f00">⑬ モスタル</text>
+
+      <!-- Plitvice -->
+      <circle cx="285" cy="258" r="5" fill="#2d5a3d" stroke="#f0c040" stroke-width="1"/>
+      <text x="273" y="248" font-size="9" fill="#1a0f00" text-anchor="middle">⑭ プリトヴィツェ</text>
+
+      <!-- Route line connecting major stops cleanly -->
+      <!-- Override with a cleaner SVG path -->
+      <g filter="url(#glow)" opacity="0.9">
+        <!-- Praha to Bratislava -->
+        <line x1="290" y1="96" x2="356" y2="108" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Bratislava to Budapest -->
+        <line x1="356" y1="108" x2="398" y2="160" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Budapest to Vienna -->
+        <line x1="398" y1="160" x2="270" y2="140" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Vienna to Bled -->
+        <line x1="270" y1="140" x2="242" y2="186" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Bled to Timisoara (long hop) -->
+        <line x1="242" y1="186" x2="530" y2="185" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Timisoara to Belgrade -->
+        <line x1="530" y1="185" x2="430" y2="255" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Belgrade to Sarajevo -->
+        <line x1="430" y1="255" x2="398" y2="296" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Sarajevo to Pristina -->
+        <line x1="398" y1="296" x2="440" y2="342" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Pristina to Kotor -->
+        <line x1="440" y1="342" x2="378" y2="362" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Kotor to Dubrovnik -->
+        <line x1="378" y1="362" x2="310" y2="380" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Dubrovnik to Makarska/Split -->
+        <line x1="310" y1="380" x2="275" y2="345" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Split to Mostar -->
+        <line x1="275" y1="345" x2="358" y2="326" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Mostar to Plitvice -->
+        <line x1="358" y1="326" x2="285" y2="258" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Plitvice to Praha (return) -->
+        <line x1="285" y1="258" x2="290" y2="96" stroke="#7a1c1c" stroke-width="2" stroke-dasharray="3,5" opacity="0.5"/>
+      </g>
+
+      <!-- Distance/info box -->
+      <rect x="590" y="380" width="155" height="100" rx="3" fill="rgba(245,233,196,0.85)" stroke="#5c3d1e" stroke-width="1"/>
+      <text x="667" y="398" font-size="9" fill="#6b4423" text-anchor="middle" font-variant="small-caps">Summa Itineris</text>
+      <line x1="600" y1="403" x2="735" y2="403" stroke="#5c3d1e" stroke-width="0.5"/>
+      <text x="600" y="418" font-size="9" fill="#3d2b1f">総距離：約 3,800 km</text>
+      <text x="600" y="433" font-size="9" fill="#3d2b1f">通過国：11 カ国</text>
+      <text x="600" y="448" font-size="9" fill="#3d2b1f">日　程：14 日間</text>
+      <text x="600" y="463" font-size="9" fill="#3d2b1f">出発地：🇨🇿 プラハ</text>
+      <line x1="600" y1="469" x2="735" y2="469" stroke="#5c3d1e" stroke-width="0.5"/>
+      <text x="667" y="477" font-size="8" fill="#b8860b" text-anchor="middle" font-style="italic">Loop Route</text>
+
+      <!-- Compass rose -->
+      <g transform="translate(680,80)">
+        <circle r="26" fill="rgba(245,233,196,0.7)" stroke="#5c3d1e" stroke-width="1"/>
+        <circle r="18" fill="none" stroke="#5c3d1e" stroke-width="0.5"/>
+        <!-- N arrow -->
+        <polygon points="0,-22 -4,-6 0,-10 4,-6" fill="#7a1c1c"/>
+        <polygon points="0,22 -4,6 0,10 4,6" fill="#5c3d1e" opacity="0.5"/>
+        <polygon points="-22,0 -6,-4 -10,0 -6,4" fill="#5c3d1e" opacity="0.5"/>
+        <polygon points="22,0 6,-4 10,0 6,4" fill="#5c3d1e" opacity="0.5"/>
+        <text x="0" y="-27" font-size="8" fill="#7a1c1c" text-anchor="middle" font-weight="bold">N</text>
+        <text x="0" y="35"  font-size="7" fill="#5c3d1e" text-anchor="middle">S</text>
+        <text x="-30" y="3" font-size="7" fill="#5c3d1e" text-anchor="middle">W</text>
+        <text x="30"  y="3" font-size="7" fill="#5c3d1e" text-anchor="middle">E</text>
+        <circle r="3" fill="#7a1c1c"/>
+      </g>
+
+      <!-- Decorative border on map -->
+      <rect x="4" y="4" width="752" height="512" fill="none" stroke="#5c3d1e" stroke-width="1.5" rx="2"/>
+      <rect x="8" y="8" width="744" height="504" fill="none" stroke="rgba(92,61,30,0.3)" stroke-width="0.5" rx="1"/>
+
+      <!-- Legend -->
+      <rect x="15" y="430" width="170" height="76" rx="2" fill="rgba(245,233,196,0.8)" stroke="#5c3d1e" stroke-width="0.75"/>
+      <text x="100" y="446" font-size="8.5" fill="#6b4423" text-anchor="middle" font-variant="small-caps">Legenda</text>
+      <line x1="22" y1="450" x2="178" y2="450" stroke="#5c3d1e" stroke-width="0.5"/>
+      <circle cx="28" cy="462" r="4.5" fill="#7a1c1c" stroke="#f0c040" stroke-width="1"/>
+      <text x="38" y="466" font-size="8" fill="#3d2b1f">主要宿泊地</text>
+      <circle cx="28" cy="477" r="4" fill="#b8860b" stroke="#f0c040" stroke-width="1"/>
+      <text x="38" y="481" font-size="8" fill="#3d2b1f">立ち寄り地</text>
+      <circle cx="28" cy="492" r="4" fill="#2d5a3d" stroke="#f0c040" stroke-width="1"/>
+      <text x="38" y="496" font-size="8" fill="#3d2b1f">国立公園</text>
+      <line x1="80" y1="459" x2="108" y2="459" stroke="#7a1c1c" stroke-width="1.8" stroke-dasharray="5,3"/>
+      <text x="115" y="463" font-size="8" fill="#3d2b1f">ルート</text>
+    </svg>
+  </div>
+
+  <p style="text-align:center;margin-top:10px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--sepia);opacity:.6;position:relative;z-index:3;">
+    — Tabula non ad scalem perfectam delineata —
+  </p>
+  <span class="pn">— III —</span>
+</div>
+
+<!-- PAGE III: SCHEDULE -->
+<div class="page">
+  <div class="ch">
+    <div class="ch-n">III</div>
+    <div class="ch-t">
+      <div class="ch-ey">14日間の旅程</div>
+      <div class="ch-ti">14日間の日程</div>
+      <div class="ch-ru"></div>
+    </div>
+  </div>
+  <div id="sch" style="border:1px solid var(--border-dark);"></div>
+  <script>
+  const ro=['1','2','3','4','5','6','7','8','9','10','11','12','13','14'];
+  const days=[
+    {city:"🇨🇿 プラハ",                              drive:"出立の地",             exp:"旧市街広場・天文時計・カレル橋夕暮れ散歩・プラハ城。プラハビールで旅の始まりを祝う",tag:""},
+    {city:"🇸🇰 ブラチスラバ 経由 → 🇭🇺 ブダペスト",  drive:"約330km · 3時間半",   exp:"スロバキアの城下町ブラチスラバに立ち寄り後、ブダペストへ。漁夫の砦・セーチェーニ温泉・夜景クルーズ",tag:"🆕 スロバキア入国"},
+    {city:"🇭🇺 ブダペスト",                           drive:"市内巡覧",             exp:"国会議事堂・英雄広場・ドナウ夜景クルーズ。フォアグラ料理に挑戦",tag:""},
+    {city:"🇭🇺 ブダペスト",                           drive:"市内巡覧2日目",         exp:"マーチャーシュ教会・漁夫の砦ゴールデンアワー・中央市場でフォアグラとパプリカをお土産に",tag:""},
+    {city:"🇦🇹 ウィーン",                             drive:"約240km · 2時間半",   exp:"シェーンブルン宮殿・リングシュトラーセ散策・カフェザッハーのトルテ",tag:""},
+    {city:"🇸🇮 ブレッド湖",                           drive:"約380km · 4時間",     exp:"湖畔ボート・孤島の教会へ参拝・ブレッドケーキ・夜明けの霧に包まれた湖は絶景",tag:""},
+    {city:"🇷🇴 ティミショアラ 経由 → 🇷🇸 ベオグラード",drive:"約520km · 5時間半",  exp:"革命発祥地ティミショアラに立ち寄り後、セルビアの首都へ。カレメグダン要塞・ラキヤで乾杯",tag:"🆕 ルーマニア入国"},
+    {city:"🇧🇦 サラエボ",                             drive:"約300km · 3時間半",   exp:"バシュチャルシャ旧市街・ガジ・フスレウベグ・モスク・WWI暗殺現場。東西文明の交差点",tag:""},
+    {city:"🇽🇰 プリシュティナ 経由 → 🇲🇪 コトル",    drive:"約430km · 5時間半",   exp:"最新国家コソボの首都プリシュティナに立ち寄り後、コトルへ。旧市街散策・城壁登山1350段",tag:"🆕 コソボ入国"},
+    {city:"🇭🇷 ドブロブニク",                         drive:"約90km · 1時間半",    exp:"城壁ウォーク（1.9km）・GoT聖地・ロクルム島フェリー。夕暮れのアドリア海は生涯の絶景",tag:""},
+    {city:"🇭🇷 マカルスカ → スプリト",                drive:"約200km · 2時間半",   exp:"午前：マカルスカ・リビエラ海岸ドライブ。午後：スプリト・ディオクレティアヌス宮殿（世界遺産）",tag:""},
+    {city:"🇧🇦 モスタル",                             drive:"約150km · 2時間",     exp:"スタリ・モスト（世界遺産の古い橋）・バザール通り・橋からのダイブ観覧（夏季）",tag:""},
+    {city:"🇭🇷 プリトヴィツェ湖群",                   drive:"約280km · 3時間半",   exp:"上湖コース・下湖コース・ボートクルーズ。エメラルドの湖と滝でこの旅の自然のフィナーレ",tag:""},
+    {city:"🇨🇿 プラハ（帰着）",                       drive:"約480km · 5時間",     exp:"黄金の都プラハへ帰還。ビアホールにて11カ国制覇を祝い、旅路の結びとする 🎉",tag:""},
+  ];
+  const sch=document.getElementById('sch');
+  days.forEach((d,i)=>{
+    const tg=d.tag?`<div class="dtag">${d.tag}</div>`:'';
+    sch.innerHTML+=`<div class="de"><div class="dg"><div class="dr">${ro[i]}</div><div class="da">DAY ${i+1}</div></div><div class="db">${tg}<div class="dc">${d.city}</div><div class="dd">${d.drive}</div><div class="dexp">${d.exp}</div></div></div>`;
+  });
+  </script>
+  <span class="pn">— IV —</span>
+</div>
+
+<!-- PAGE IV: PRACTICAL -->
+<div class="page page-alt">
+  <div class="ch">
+    <div class="ch-n">IV</div>
+    <div class="ch-t">
+      <div class="ch-ey">Viaticum Practicum</div>
+      <div class="ch-ti">旅の準備と心得</div>
+      <div class="ch-ru"></div>
+    </div>
+  </div>
+  <div class="ib">
+    <div class="ih">⚔ 馬車（レンタカー）について</div>
+    <div class="ig">
+      <div class="ir"><div class="ik">借り出し／返却</div><div class="iv">プラハ国際空港（ループルートのため乗り捨て不要）</div></div>
+      <div class="ir"><div class="ik">国境越え</div><div class="iv">EU外（ボスニア・モンテネグロ・コソボ）への持ち込みはレンタカー会社に事前申告必須</div></div>
+      <div class="ir"><div class="ik">グリーンカード</div><div class="iv">EU域外入国時に必要な自動車保険証明書。借りる際に必ず確認を</div></div>
+      <div class="ir"><div class="ik">推奨車種</div><div class="iv">山道が多いためSUV推奨。AT限定でも問題なし</div></div>
+      <div class="ir"><div class="ik">燃料補給</div><div class="iv">ボスニア・モンテネグロの山岳部は給油所が少ない。こまめに補給を</div></div>
+    </div>
+  </div>
+  <div class="ib">
+    <div class="ih">🛡 国境と関所</div>
+    <div class="ig">
+      <div class="ir"><div class="ik">旅券携帯</div><div class="iv">全行程で必須。特にドブロブニク⇔コトル間はボスニア領ネウムを通過するため要注意</div></div>
+      <div class="ir"><div class="ik">シェンゲン協定</div><div class="iv">チェコ・スロバキア・オーストリア・スロベニア・ハンガリー・クロアチアは共通圏</div></div>
+      <div class="ir"><div class="ik">非EU圏</div><div class="iv">ルーマニア・セルビア・ボスニア・コソボ・モンテネグロは個別チェックあり</div></div>
+      <div class="ir"><div class="ik">査証（ビザ）</div><div class="iv">日本国籍は全11カ国でビザ不要（90日以内）</div></div>
+    </div>
+  </div>
+  <div class="ib">
+    <div class="ih">💰 通貨・金銭</div>
+    <div class="cg">
+      <div class="cc"><div class="ccc">🇨🇿 チェコ</div><div class="ccn">コルナ</div></div>
+      <div class="cc"><div class="ccc">🇸🇰 スロバキア</div><div class="ccn">ユーロ</div></div>
+      <div class="cc"><div class="ccc">🇭🇺 ハンガリー</div><div class="ccn">フォリント</div></div>
+      <div class="cc"><div class="ccc">🇦🇹 オーストリア</div><div class="ccn">ユーロ</div></div>
+      <div class="cc"><div class="ccc">🇸🇮 スロベニア</div><div class="ccn">ユーロ</div></div>
+      <div class="cc"><div class="ccc">🇷🇴 ルーマニア</div><div class="ccn">レウ</div></div>
+      <div class="cc"><div class="ccc">🇷🇸 セルビア</div><div class="ccn">ディナール</div></div>
+      <div class="cc"><div class="ccc">🇧🇦 ボスニア</div><div class="ccn">マルク</div></div>
+      <div class="cc"><div class="ccc">🇽🇰 コソボ</div><div class="ccn">ユーロ</div></div>
+      <div class="cc"><div class="ccc">🇲🇪 モンテネグロ</div><div class="ccn">ユーロ</div></div>
+      <div class="cc"><div class="ccc">🇭🇷 クロアチア</div><div class="ccn">ユーロ</div></div>
+      <div class="cc" style="background:rgba(122,28,28,0.07);"><div class="ccc">💡 総予算目安</div><div class="ccn" style="font-size:10px;">40〜60万円/人</div></div>
+    </div>
+    <p style="margin-top:9px;font-size:11.5px;color:var(--sepia);font-style:italic;">現地ATMでの引き出しが最もレートが良い。Revolut / Wise カード推奨。</p>
+  </div>
+  <div class="ib">
+    <div class="ih">📜 必携の道具（アプリ）</div>
+    <div class="ig">
+      <div class="ir"><div class="ik">Google Maps / Maps.me</div><div class="iv">オフラインマップを事前にDL。電波のない山岳地帯でも安心</div></div>
+      <div class="ir"><div class="ik">Booking.com</div><div class="iv">宿の予約。ドブロブニクは夏の3ヶ月前でも満室になる</div></div>
+      <div class="ir"><div class="ik">Google翻訳</div><div class="iv">バルカン諸国ではローカル店では英語が通じないことも</div></div>
+      <div class="ir"><div class="ik">Revolut / Wise</div><div class="iv">多通貨対応、両替手数料ゼロのキャッシュレス決済</div></div>
+    </div>
+  </div>
+  <span class="pn">— V —</span>
+</div>
+
+<!-- PAGE V: HIGHLIGHTS -->
+<div class="page">
+  <div class="ch">
+    <div class="ch-n">V</div>
+    <div class="ch-t">
+      <div class="ch-ey">Loca Praeclara</div>
+      <div class="ch-ti">旅のハイライト</div>
+      <div class="ch-ru"></div>
+    </div>
+  </div>
+  <div class="hlc">
+    <div class="hlcard"><div class="hlr"><div class="hlri">I</div></div><div class="hlb"><div class="hlt">🇭🇷 ドブロブニク — 城壁ウォーク</div><div class="hld">アドリア海を一望しながら1.9kmの古城壁を歩く。GoT聖地として世界に知られ、夕暮れ時に城壁から望む海の深い青は生涯忘れ得ぬ絶景となる。</div></div></div>
+    <div class="hlcard"><div class="hlr"><div class="hlri">II</div></div><div class="hlb"><div class="hlt">🇲🇪 コトル — 城壁登山 1,350段</div><div class="hld">急峻な石段を1,350段登りきると、コトル湾の完璧なパノラマが眼前に広がる。山と海と要塞が織りなす景観は欧州屈指。猫の街としても名高く旧市街に無数の猫が棲む。</div></div></div>
+    <div class="hlcard"><div class="hlr"><div class="hlri">III</div></div><div class="hlb"><div class="hlt">🇸🇮 ブレッド湖 — 夜明けの孤島教会</div><div class="hld">人工と見紛うほど完璧に美しい湖上の孤島の聖マリア教会。早朝の霧の中に浮かぶ光景は幻想そのもの。ボートで渡り鐘を鳴らすと願いが叶うと伝えられる。</div></div></div>
+    <div class="hlcard"><div class="hlr"><div class="hlri">IV</div></div><div class="hlb"><div class="hlt">🇽🇰 コソボ — 最新の独立国家</div><div class="hld">2008年独立、日本人旅行者がほぼゼロの「行く人を選ぶ国」。プリシュティナの独立記念碑・バザール・混沌とした活気は、50カ国以上を歴訪した旅人をも驚かせる真の秘境感がある。</div></div></div>
+    <div class="hlcard"><div class="hlr"><div class="hlri">V</div></div><div class="hlb"><div class="hlt">🇭🇷 マカルスカ海岸ロード</div><div class="hld">世界水準の美しさを誇るアドリア海岸沿いの縦貫道。エメラルドグリーンの海と白い石灰岩の崖が果てしなく続く。車の窓を開け潮風を感じながら走るだけで、生を実感できる一本道。</div></div></div>
+  </div>
+  <span class="pn">— VI —</span>
+</div>
+
+<!-- BACK COVER -->
+<div class="bc">
+  <!-- Compass rose watermark -->
+  <svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:320px;height:320px;opacity:0.04;" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="160" cy="160" r="150" stroke="#b8860b" stroke-width="1"/>
+    <circle cx="160" cy="160" r="110" stroke="#b8860b" stroke-width="0.5"/>
+    <circle cx="160" cy="160" r="60"  stroke="#b8860b" stroke-width="0.5"/>
+    <line x1="10" y1="160" x2="310" y2="160" stroke="#b8860b" stroke-width="0.5"/>
+    <line x1="160" y1="10" x2="160" y2="310" stroke="#b8860b" stroke-width="0.5"/>
+    <line x1="54"  y1="54"  x2="266" y2="266" stroke="#b8860b" stroke-width="0.3"/>
+    <line x1="266" y1="54"  x2="54"  y2="266" stroke="#b8860b" stroke-width="0.3"/>
+    <polygon points="160,10 165,155 160,150 155,155" fill="#b8860b" opacity="0.6"/>
+    <polygon points="160,310 165,165 160,170 155,165" fill="#b8860b" opacity="0.3"/>
+    <circle cx="160" cy="160" r="5" fill="#b8860b" opacity="0.5"/>
+  </svg>
+
+  <div class="bq">Viam inveniam aut faciam</div>
+  <div class="bqs">「道を見つけるか、さもなくば切り開く」</div>
+  <div class="bqa">— Hannibal Barca</div>
+  <div class="bdiv"></div>
+  <div style="font-size:20px;letter-spacing:5px;">🇨🇿 🇸🇰 🇭🇺 🇦🇹 🇸🇮 🇷🇴 🇷🇸 🇧🇦 🇽🇰 🇲🇪 🇭🇷</div>
+  <a class="blink" href="https://www.google.com/maps/dir/Prague/Vienna/Lake+Bled/Budapest/Timisoara/Belgrade/Sarajevo/Zabljak/Kotor/Dubrovnik/Makarska/Split/Mostar/Plitvice+Lakes+National+Park/Prague" target="_blank">
+    ✦ &nbsp; Google Maps にてルートを開く &nbsp; ✦
+  </a>
+  <div class="bfoot">Iter Magnum · 3,800km · 11カ国 · 14日間 · Anno Domini MMXXVI</div>
+</div>
+
+</div>
+</body>
+</html>
